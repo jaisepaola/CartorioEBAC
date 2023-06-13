@@ -98,30 +98,28 @@ int deletar()
 	
 	printf("Digite o CPF do usuário a ser deletado: \n");
 	scanf("%s",&cpf);
-			
+	
+	
 	FILE *file;
 	file = fopen(cpf,"r");
 	
 	if(file == NULL)
 	{
-		printf("O usuário não se encontra no sistema!\n\n");
+		printf("O usuário não encontrado no sistema!\n");
 		system("pause");
-		fclose(file);
+		fclose (file);
 		
 	}
-	
 	else
 	{
- 		fclose(file);
-		remove(cpf);
-		printf("Usuário deletado! \n\n");
+		fclose(file);
+		remove (cpf);
+		printf ("Usuário deletado! \n");
 		system ("pause");
-
+		
+	}
 	}
 	
-	
-	}
-
 int main ()
 	{
 	int opcao=0; //definindo variáveis
@@ -138,7 +136,8 @@ int main ()
 		printf ("Escolha a opção desejada do menu: \n\n");
 		printf ("\t1 - Registrar nomes\n");
 		printf ("\t2 - Consultar nomes\n");
-		printf ("\t3 - Deletar nomes\n");
+		printf ("\t3 - Deletar nomes\n\n");
+		printf ("\t4 - Sair do sistema \n\n");
 		printf ("Opção: "); //fim do menu
 	
 		scanf("%d", &opcao); //armazenando a escolha do usuario
@@ -158,6 +157,11 @@ int main ()
 			
 			case 3:
 			deletar();
+			break;
+			
+			case 4:
+			printf ("Obrigado por utilizar o sistema!\n");
+			return 0;
 			break;
 			
 			default:
